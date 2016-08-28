@@ -1,0 +1,34 @@
+﻿<Window x:Class="WpfProject.AddChauffeurDriverJournal"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfProject"
+        mc:Ignorable="d"
+        Title="Lägg till ny körjournal" Height="309.887" Width="587.916">
+    <Grid>
+
+        <StackPanel>
+            <Label Content="Datum: *" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.469,0.469"/>
+            <DatePicker x:Name="dtpDate" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top"/>
+            <Label Content="Fordon: *" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top"/>
+            <ComboBox x:Name="cmbVehicle" DisplayMemberPath="RegNo" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cmbVehicle_SelectionChanged"/>
+            <Label Content="Bränsletyp: *" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top"/>
+            <ComboBox x:Name="cmbFuelType" DisplayMemberPath="Type" HorizontalAlignment="Left" Margin="8,5,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cmbFuelType_SelectionChanged"/>
+            <Label Content="Mätarställning: *" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="tbMilage" HorizontalAlignment="Left" Height="23" Margin="10,5,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal">
+            <Label Content="Enhetspris: *" HorizontalAlignment="Left" Margin="170,185,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="tbUnitPrice" HorizontalAlignment="Left" Height="23" Margin="-70,215,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="CountTotalPrice"/>
+            <Label Content="Mängd: *" HorizontalAlignment="Left" Margin="15,185,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="tbFuelAmount" HorizontalAlignment="Left" Height="23" Margin="-55,215,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" TextChanged="CountTotalPrice"/>
+            <Label Content="Totalpris: *" HorizontalAlignment="Left" Margin="15,185,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="tbTotalPrice" IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="-60,215,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+            <Button x:Name="btnAddDriverJournal" Content="Lägg till" HorizontalAlignment="Left" Margin="-120,250,0,0" VerticalAlignment="Top" Width="120" Click="btnAddDriverJournal_Click"/>
+            <Label x:Name="lbCurrentMilage" HorizontalAlignment="Left" Margin="8,298,0,0" VerticalAlignment="Top"/>
+        </StackPanel>
+        
+    </Grid>
+</Window>

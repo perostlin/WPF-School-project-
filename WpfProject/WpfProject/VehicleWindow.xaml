@@ -1,0 +1,32 @@
+﻿<Window x:Class="WpfProject.VehicleWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfProject"
+        mc:Ignorable="d"
+        Title="Lägg till nytt fordon" Height="320.793" Width="338.164">
+    <Grid Margin="0,0,0,-0.2">
+
+        <StackPanel>
+            <Label Content="Registreringsnummer: *" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="tbRegNo" HorizontalAlignment="Left" Height="23" Margin="10,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+            <Label Content="Beskrivning:" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="tbDescription" HorizontalAlignment="Left" Height="23" Margin="10,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+            <Label Content="Orginal mätarställning (km): *" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="tbOriginalMilage" HorizontalAlignment="Left" Height="23" Margin="10,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        </StackPanel>
+
+        <StackPanel>
+            <Label Content="Typ av fordon: *" HorizontalAlignment="Left" Margin="200,10,0,0" VerticalAlignment="Top"/>
+            <ComboBox x:Name="cmbVehicleType" DisplayMemberPath="Type" HorizontalAlignment="Left" Margin="200,5,0,0" VerticalAlignment="Top" Width="120"/>
+            <Label Content="Bränsletyp: *" HorizontalAlignment="Left" Margin="200,5,0,0" VerticalAlignment="Top"/>
+            <ComboBox x:Name="cmbFuelType" DisplayMemberPath="Type" HorizontalAlignment="Left" Margin="200,5,0,0" VerticalAlignment="Top" Width="120"/>
+            <Label Content="Färg:" HorizontalAlignment="Left" Margin="200,5,0,0" VerticalAlignment="Top"/>
+            <ComboBox x:Name="cmbColor" DisplayMemberPath="ColorName" HorizontalAlignment="Left" Margin="200,5,0,0" VerticalAlignment="Top" Width="120"/>
+            <Label Content="Årsmodell:" HorizontalAlignment="Left" Margin="200,5,0,0" VerticalAlignment="Top"/>
+            <ComboBox x:Name="cmbModelYear" DisplayMemberPath="Year" HorizontalAlignment="Left" Margin="200,5,0,0" VerticalAlignment="Top" Width="120"/>
+            <Button x:Name="btnAddVehicle" Content="Lägg till fordon" HorizontalAlignment="Left" Margin="200,25,0,0" VerticalAlignment="Top" Width="120" Click="btnAddVehicle_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

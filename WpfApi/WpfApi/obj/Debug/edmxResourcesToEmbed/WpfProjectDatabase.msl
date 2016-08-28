@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="WpfProjectDatabaseModelStoreContainer" CdmEntityContainer="WpfProjectDatabaseEntities">
+    <EntitySetMapping Name="Color">
+      <EntityTypeMapping TypeName="WpfProjectDatabaseModel.Color">
+        <MappingFragment StoreEntitySet="Color">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Color1" ColumnName="Color" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FuelType">
+      <EntityTypeMapping TypeName="WpfProjectDatabaseModel.FuelType">
+        <MappingFragment StoreEntitySet="FuelType">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ModelYear">
+      <EntityTypeMapping TypeName="WpfProjectDatabaseModel.ModelYear">
+        <MappingFragment StoreEntitySet="ModelYear">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RefuelingDriverJournal">
+      <EntityTypeMapping TypeName="WpfProjectDatabaseModel.RefuelingDriverJournal">
+        <MappingFragment StoreEntitySet="RefuelingDriverJournal">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
+          <ScalarProperty Name="TypeOfCostID" ColumnName="TypeOfCostID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReportDriverJournal">
+      <EntityTypeMapping TypeName="WpfProjectDatabaseModel.ReportDriverJournal">
+        <MappingFragment StoreEntitySet="ReportDriverJournal">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Milage" ColumnName="Milage" />
+          <ScalarProperty Name="FuelAmount" ColumnName="FuelAmount" />
+          <ScalarProperty Name="PricePerUnit" ColumnName="PricePerUnit" />
+          <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+          <ScalarProperty Name="ChauffeurID" ColumnName="ChauffeurID" />
+          <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
+          <ScalarProperty Name="FuelTypeID" ColumnName="FuelTypeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeOfCost">
+      <EntityTypeMapping TypeName="WpfProjectDatabaseModel.TypeOfCost">
+        <MappingFragment StoreEntitySet="TypeOfCost">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="WpfProjectDatabaseModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Salt" ColumnName="Salt" />
+          <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vehicle">
+      <EntityTypeMapping TypeName="WpfProjectDatabaseModel.Vehicle">
+        <MappingFragment StoreEntitySet="Vehicle">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="RegNo" ColumnName="RegNo" />
+          <ScalarProperty Name="OriginalMileage" ColumnName="OriginalMileage" />
+          <ScalarProperty Name="Desription" ColumnName="Desription" />
+          <ScalarProperty Name="ColorID" ColumnName="ColorID" />
+          <ScalarProperty Name="VehicleTypeID" ColumnName="VehicleTypeID" />
+          <ScalarProperty Name="ModelYearID" ColumnName="ModelYearID" />
+          <ScalarProperty Name="FuelTypeID" ColumnName="FuelTypeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VehicleType">
+      <EntityTypeMapping TypeName="WpfProjectDatabaseModel.VehicleType">
+        <MappingFragment StoreEntitySet="VehicleType">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BilApi", "BilApi\BilApi.csproj", "{27B2C805-3139-4DFD-A5BB-8A8C1E74C5B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BilApi.Tests", "BilApi.Tests\BilApi.Tests.csproj", "{5280B535-3331-4B02-ACD4-CB17CBFCD31A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{27B2C805-3139-4DFD-A5BB-8A8C1E74C5B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27B2C805-3139-4DFD-A5BB-8A8C1E74C5B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27B2C805-3139-4DFD-A5BB-8A8C1E74C5B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27B2C805-3139-4DFD-A5BB-8A8C1E74C5B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5280B535-3331-4B02-ACD4-CB17CBFCD31A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5280B535-3331-4B02-ACD4-CB17CBFCD31A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5280B535-3331-4B02-ACD4-CB17CBFCD31A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5280B535-3331-4B02-ACD4-CB17CBFCD31A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

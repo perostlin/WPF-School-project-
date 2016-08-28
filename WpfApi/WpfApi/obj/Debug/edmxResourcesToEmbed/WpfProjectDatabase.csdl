@@ -1,0 +1,259 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WpfProjectDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Color">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Color1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Vehicle" Relationship="Self.FK__Vehicle__ColorID__5DCAEF64" FromRole="Color" ToRole="Vehicle" />
+  </EntityType>
+  <EntityType Name="FuelType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ReportDriverJournal" Relationship="Self.FK__ReportDri__FuelT__74AE54BC" FromRole="FuelType" ToRole="ReportDriverJournal" />
+    <NavigationProperty Name="Vehicle" Relationship="Self.FK__Vehicle__FuelTyp__60A75C0F" FromRole="FuelType" ToRole="Vehicle" />
+  </EntityType>
+  <EntityType Name="ModelYear">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Year" Type="Int32" />
+    <NavigationProperty Name="Vehicle" Relationship="Self.FK__Vehicle__ModelYe__5FB337D6" FromRole="ModelYear" ToRole="Vehicle" />
+  </EntityType>
+  <EntityType Name="RefuelingDriverJournal">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Cost" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Comment" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VehicleID" Type="Guid" Nullable="false" />
+    <Property Name="TypeOfCostID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="TypeOfCost" Relationship="Self.FK__Refueling__TypeO__6FE99F9F" FromRole="RefuelingDriverJournal" ToRole="TypeOfCost" />
+    <NavigationProperty Name="Vehicle" Relationship="Self.FK__Refueling__Vehic__6EF57B66" FromRole="RefuelingDriverJournal" ToRole="Vehicle" />
+  </EntityType>
+  <EntityType Name="ReportDriverJournal">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Milage" Type="Int32" Nullable="false" />
+    <Property Name="FuelAmount" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="PricePerUnit" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="TotalPrice" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="ChauffeurID" Type="Guid" Nullable="false" />
+    <Property Name="VehicleID" Type="Guid" Nullable="false" />
+    <Property Name="FuelTypeID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="FuelType" Relationship="Self.FK__ReportDri__FuelT__74AE54BC" FromRole="ReportDriverJournal" ToRole="FuelType" />
+    <NavigationProperty Name="User" Relationship="Self.FK__ReportDri__Chauf__72C60C4A" FromRole="ReportDriverJournal" ToRole="User" />
+    <NavigationProperty Name="Vehicle" Relationship="Self.FK__ReportDri__Vehic__73BA3083" FromRole="ReportDriverJournal" ToRole="Vehicle" />
+  </EntityType>
+  <EntityType Name="TypeOfCost">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="String" MaxLength="75" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="RefuelingDriverJournal" Relationship="Self.FK__Refueling__TypeO__6FE99F9F" FromRole="TypeOfCost" ToRole="RefuelingDriverJournal" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Salt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsAdmin" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="ReportDriverJournal" Relationship="Self.FK__ReportDri__Chauf__72C60C4A" FromRole="User" ToRole="ReportDriverJournal" />
+  </EntityType>
+  <EntityType Name="Vehicle">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="RegNo" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="OriginalMileage" Type="Int32" Nullable="false" />
+    <Property Name="Desription" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
+    <Property Name="ColorID" Type="Int32" />
+    <Property Name="VehicleTypeID" Type="Int32" Nullable="false" />
+    <Property Name="ModelYearID" Type="Int32" />
+    <Property Name="FuelTypeID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Color" Relationship="Self.FK__Vehicle__ColorID__5DCAEF64" FromRole="Vehicle" ToRole="Color" />
+    <NavigationProperty Name="FuelType" Relationship="Self.FK__Vehicle__FuelTyp__60A75C0F" FromRole="Vehicle" ToRole="FuelType" />
+    <NavigationProperty Name="ModelYear" Relationship="Self.FK__Vehicle__ModelYe__5FB337D6" FromRole="Vehicle" ToRole="ModelYear" />
+    <NavigationProperty Name="RefuelingDriverJournal" Relationship="Self.FK__Refueling__Vehic__6EF57B66" FromRole="Vehicle" ToRole="RefuelingDriverJournal" />
+    <NavigationProperty Name="ReportDriverJournal" Relationship="Self.FK__ReportDri__Vehic__73BA3083" FromRole="Vehicle" ToRole="ReportDriverJournal" />
+    <NavigationProperty Name="VehicleType" Relationship="Self.FK__Vehicle__Vehicle__5EBF139D" FromRole="Vehicle" ToRole="VehicleType" />
+  </EntityType>
+  <EntityType Name="VehicleType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Vehicle" Relationship="Self.FK__Vehicle__Vehicle__5EBF139D" FromRole="VehicleType" ToRole="Vehicle" />
+  </EntityType>
+  <Association Name="FK__Vehicle__ColorID__5DCAEF64">
+    <End Role="Color" Type="Self.Color" Multiplicity="0..1" />
+    <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Color">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Vehicle">
+        <PropertyRef Name="ColorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ReportDri__FuelT__74AE54BC">
+    <End Role="FuelType" Type="Self.FuelType" Multiplicity="1" />
+    <End Role="ReportDriverJournal" Type="Self.ReportDriverJournal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FuelType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ReportDriverJournal">
+        <PropertyRef Name="FuelTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Vehicle__FuelTyp__60A75C0F">
+    <End Role="FuelType" Type="Self.FuelType" Multiplicity="1" />
+    <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FuelType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Vehicle">
+        <PropertyRef Name="FuelTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Vehicle__ModelYe__5FB337D6">
+    <End Role="ModelYear" Type="Self.ModelYear" Multiplicity="0..1" />
+    <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ModelYear">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Vehicle">
+        <PropertyRef Name="ModelYearID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Refueling__TypeO__6FE99F9F">
+    <End Role="TypeOfCost" Type="Self.TypeOfCost" Multiplicity="1" />
+    <End Role="RefuelingDriverJournal" Type="Self.RefuelingDriverJournal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeOfCost">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="RefuelingDriverJournal">
+        <PropertyRef Name="TypeOfCostID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Refueling__Vehic__6EF57B66">
+    <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="1" />
+    <End Role="RefuelingDriverJournal" Type="Self.RefuelingDriverJournal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vehicle">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="RefuelingDriverJournal">
+        <PropertyRef Name="VehicleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ReportDri__Chauf__72C60C4A">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="ReportDriverJournal" Type="Self.ReportDriverJournal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ReportDriverJournal">
+        <PropertyRef Name="ChauffeurID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ReportDri__Vehic__73BA3083">
+    <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="1" />
+    <End Role="ReportDriverJournal" Type="Self.ReportDriverJournal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vehicle">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ReportDriverJournal">
+        <PropertyRef Name="VehicleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Vehicle__Vehicle__5EBF139D">
+    <End Role="VehicleType" Type="Self.VehicleType" Multiplicity="1" />
+    <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VehicleType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Vehicle">
+        <PropertyRef Name="VehicleTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="WpfProjectDatabaseEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Color" EntityType="Self.Color" />
+    <EntitySet Name="FuelType" EntityType="Self.FuelType" />
+    <EntitySet Name="ModelYear" EntityType="Self.ModelYear" />
+    <EntitySet Name="RefuelingDriverJournal" EntityType="Self.RefuelingDriverJournal" />
+    <EntitySet Name="ReportDriverJournal" EntityType="Self.ReportDriverJournal" />
+    <EntitySet Name="TypeOfCost" EntityType="Self.TypeOfCost" />
+    <EntitySet Name="User" EntityType="Self.User" />
+    <EntitySet Name="Vehicle" EntityType="Self.Vehicle" />
+    <EntitySet Name="VehicleType" EntityType="Self.VehicleType" />
+    <AssociationSet Name="FK__Vehicle__ColorID__5DCAEF64" Association="Self.FK__Vehicle__ColorID__5DCAEF64">
+      <End Role="Color" EntitySet="Color" />
+      <End Role="Vehicle" EntitySet="Vehicle" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ReportDri__FuelT__74AE54BC" Association="Self.FK__ReportDri__FuelT__74AE54BC">
+      <End Role="FuelType" EntitySet="FuelType" />
+      <End Role="ReportDriverJournal" EntitySet="ReportDriverJournal" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Vehicle__FuelTyp__60A75C0F" Association="Self.FK__Vehicle__FuelTyp__60A75C0F">
+      <End Role="FuelType" EntitySet="FuelType" />
+      <End Role="Vehicle" EntitySet="Vehicle" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Vehicle__ModelYe__5FB337D6" Association="Self.FK__Vehicle__ModelYe__5FB337D6">
+      <End Role="ModelYear" EntitySet="ModelYear" />
+      <End Role="Vehicle" EntitySet="Vehicle" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Refueling__TypeO__6FE99F9F" Association="Self.FK__Refueling__TypeO__6FE99F9F">
+      <End Role="TypeOfCost" EntitySet="TypeOfCost" />
+      <End Role="RefuelingDriverJournal" EntitySet="RefuelingDriverJournal" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Refueling__Vehic__6EF57B66" Association="Self.FK__Refueling__Vehic__6EF57B66">
+      <End Role="Vehicle" EntitySet="Vehicle" />
+      <End Role="RefuelingDriverJournal" EntitySet="RefuelingDriverJournal" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ReportDri__Chauf__72C60C4A" Association="Self.FK__ReportDri__Chauf__72C60C4A">
+      <End Role="User" EntitySet="User" />
+      <End Role="ReportDriverJournal" EntitySet="ReportDriverJournal" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ReportDri__Vehic__73BA3083" Association="Self.FK__ReportDri__Vehic__73BA3083">
+      <End Role="Vehicle" EntitySet="Vehicle" />
+      <End Role="ReportDriverJournal" EntitySet="ReportDriverJournal" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Vehicle__Vehicle__5EBF139D" Association="Self.FK__Vehicle__Vehicle__5EBF139D">
+      <End Role="VehicleType" EntitySet="VehicleType" />
+      <End Role="Vehicle" EntitySet="Vehicle" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

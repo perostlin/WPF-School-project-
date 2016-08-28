@@ -1,0 +1,63 @@
+﻿<Window x:Class="WpfBilKlient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfBilKlient"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="682.532">
+    <Grid Margin="0,0,0,-6">
+        <DataGrid x:Name="dataGridBilar" HorizontalAlignment="Left" Margin="19,14,0,0" VerticalAlignment="Top" Height="199" Width="579" SelectionChanged="dataGrid_SelectionChanged" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed">
+            <DataGrid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.02"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </DataGrid.RenderTransform>
+        </DataGrid>
+        <Button x:Name="buttonGetAllCars" Content="Hämta alla bilar" HorizontalAlignment="Left" Margin="52,243,0,0" VerticalAlignment="Top" Width="105" Click="buttonGetAllCars_Click"/>
+        <TextBox x:Name="textBoxSokRegnr" HorizontalAlignment="Left" Height="23" Margin="198,243,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="SKL886"/>
+        <Button x:Name="buttonHamtaBil" Content="Hämta specifik bil" HorizontalAlignment="Left" Margin="329,243,0,0" VerticalAlignment="Top" Width="109" Click="buttonHamtaBil_Click"/>
+        <Button x:Name="buttonClear" Content="Rensa" HorizontalAlignment="Left" Margin="476,243,0,0" VerticalAlignment="Top" Width="75" Click="buttonClear_Click"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="49" Margin="179,229,0,0" VerticalAlignment="Top" Width="273"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="49" Margin="32,229,0,0" VerticalAlignment="Top" Width="142"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="49" Margin="457,229,0,0" VerticalAlignment="Top" Width="125"/>
+
+        <StackPanel x:Name="NewCarPanel" HorizontalAlignment="Left" Height="181" Margin="312,21,0,0" VerticalAlignment="Top" Width="253">
+            <StackPanel Orientation="Horizontal">
+                <Label x:Name="labelRegnr" Content="Reg nr"/>
+                <TextBox x:Name="textBoxRegnr" Height="23" TextWrapping="Wrap" Text="" Width="100"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label x:Name="labelArsmodell" Content="Årsmodell"/>
+                <TextBox x:Name="textBoxArsmodell" Height="23" TextWrapping="Wrap" Text="2016" Width="100"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label x:Name="labelModell" Content="Modellbeteckning"/>
+                <TextBox x:Name="textBoxModell" Height="23" TextWrapping="Wrap" Text="" Width="100"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label x:Name="labelMarke" Content="Märke"/>
+                <TextBox x:Name="textBoxMarke" Height="23" TextWrapping="Wrap" Text="Audi" Width="100"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label x:Name="labelFarg" Content="Färg"/>
+                <TextBox x:Name="textBoxFarg" Height="23" TextWrapping="Wrap" Text="Ragusa" Width="100"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label x:Name="labelMetallic" Content="Metalliclack"/>
+                <CheckBox x:Name="checkBoxMetallic"/>
+                <Button x:Name="buttonNewCar" Content="Skapa ny bil" HorizontalAlignment="Right" Click="ButtonNewCar_OnClick"/>
+            </StackPanel>
+        </StackPanel>
+        <Border x:Name ="newCarBorder" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="181" Margin="312,10,0,0" VerticalAlignment="Top" Width="239">
+            
+        </Border>
+        <TextBox x:Name="textBoxAddress" HorizontalAlignment="Left" Height="23" Margin="32,292,0,0" TextWrapping="Wrap" Text="http://microsoft-apiappdba56dcc1d6e4d2e9c0a2c61707dbd1e.azurewebsites.net/" VerticalAlignment="Top" Width="443"/>
+        <Button x:Name="buttonLocal" Content="Local" HorizontalAlignment="Left" Margin="500,292,0,0" VerticalAlignment="Top" Width="75" Click="buttonLocal_Click"/>
+        <Button x:Name="buttonAzure" Content="Azure" HorizontalAlignment="Left" Margin="580,291,0,0" VerticalAlignment="Top" Width="75" Click="buttonAzure_Click"/>
+
+    </Grid>
+</Window>

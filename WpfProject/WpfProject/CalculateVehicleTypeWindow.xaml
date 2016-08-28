@@ -1,0 +1,50 @@
+﻿<Window x:Class="WpfProject.CalculateVehicleTypeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfProject"
+        mc:Ignorable="d"
+        Title="Räkna ut på fordonstyp" Height="406.955" Width="504.93">
+    <Grid>
+
+        <StackPanel>
+            <Label Content="Välj fordonstyp:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+            <ComboBox x:Name="cmbVehicleType" DisplayMemberPath="Type" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cmbVehicleType_SelectionChanged"/>
+            <Label Content="Vald månad" FontSize="15" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top"/>
+            <Label Content="Snittförbrukningen:" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="tbMonthlyFuelConsumption" IsReadOnly="true" HorizontalAlignment="Left" Height="23" Margin="10,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+            <Label Content="Valt år" FontSize="15" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top"/>
+            <Label Content="Snittförbrukningen:" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="tbYearhlyFuelConsumption" IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="10,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+            <Label Content="Sedan tidens början" FontSize="15" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top"/>
+            <Label Content="Snittförbrukningen:" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="tbBeginningFuelConsumption" IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="10,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        </StackPanel>
+
+        <StackPanel>
+            <Label Content="Välj år/månad/dag:" HorizontalAlignment="Left" Margin="175,10,0,0" VerticalAlignment="Top"/>
+            <DatePicker x:Name="dtpYearMonthDay" CalendarOpened="dtpYearMonthDay_CalendarOpened" SelectedDateChanged="dtpYearMonthDay_SelectedDateChanged" HorizontalAlignment="Left" Margin="175,5,0,0" VerticalAlignment="Top" Height="22" Width="120">
+                <DatePicker.CalendarStyle>
+                    <Style TargetType="Calendar">
+                        <Setter Property="DisplayMode" Value="Decade"/>
+                    </Style>
+                </DatePicker.CalendarStyle>
+            </DatePicker>
+            <Label Content="Totala bränslekostnaden:" HorizontalAlignment="Left" Margin="175,40,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="tbMonthlyTotalFuelAmount" IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="175,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+            <Label Content="Totala bränslekostnaden:" HorizontalAlignment="Left" Margin="175,40,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="tbYearlyTotalFuelAmount" IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="175,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+            <Label Content="Totala bränslekostnaden:" HorizontalAlignment="Left" Margin="175,40,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="tbBeginningTotalFuelAmount" IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="175,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        </StackPanel>
+
+        <StackPanel>
+            <Label Content="Totala kostnaden:" HorizontalAlignment="Left" Margin="360,105,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="tbMonthlyTotalVehicleCost" IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="360,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+            <Label Content="Totala kostnaden:" HorizontalAlignment="Left" Margin="360,40,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="tbYearlyTotalVehicleCost" IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="360,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        </StackPanel>
+
+    </Grid>
+</Window>
